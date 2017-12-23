@@ -1,5 +1,5 @@
-@()
+@(name: String)
 
-@main("Welcome to Play") {
-  <h1>Welcome to Play!</h1>
+@main(s"Hello, $name") {
+  <h1>Hello, @name</h1>
 }
