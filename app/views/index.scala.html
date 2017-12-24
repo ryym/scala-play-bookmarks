@@ -1,5 +1,23 @@
-@(name: String)
+@import models.{Bookmark, Entry}
+
+@(name: String, bookmarks: List[(Bookmark, Entry)])
 
 @main(s"Hello, $name") {
   <h1>Hello, @name</h1>
+
+  @if(bookmarks.isEmpty) {
+    <p>You have no bookmarks yet.</p>
+  } else {
+    <h2>Your bookmarks</h2>
+    <ul>
+      @bookmarks.map { case(b, entry) =>
+      <li>
+        <a href="@entry.url" target="_blank" rel="noopener">@entry.title</a>
+        <p>
+          @b.comment
+        </p>
+      </li>
+      }
+    </ul>
+  }
 }

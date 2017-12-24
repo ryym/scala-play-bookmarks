@@ -4,16 +4,19 @@ import javax.inject._
 import play.api._
 import play.api.mvc._
 import scalikejdbc._
-import services.UserService
+import services._
 
 @Singleton
 class HomeController @Inject()(
   cc: ControllerComponents,
   userS: UserService,
+  bookmarkS: BookmarkService,
 ) extends AbstractController(cc) {
 
   def index() = Action { implicit request: Request[AnyContent] =>
     val user = userS.currentUser
-    Ok(views.html.index(user.name))
+    val bookmarks = bookmarkS.listBookmarks(user.id)
+
+    Ok(views.html.index(user.name, bookmarks))
   }
 }
