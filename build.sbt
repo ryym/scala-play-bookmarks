@@ -15,7 +15,8 @@ libraryDependencies ++= Seq(
   "org.scalikejdbc" %% "scalikejdbc" % "3.1.0",
   "org.scalikejdbc" %% "scalikejdbc-config" % "3.1.0",
   "org.scalikejdbc" %% "scalikejdbc-play-initializer" % "2.6.0",
-  "org.scalikejdbc" %% "scalikejdbc-syntax-support-macro" % "3.1.0"
+  "org.scalikejdbc" %% "scalikejdbc-syntax-support-macro" % "3.1.0",
+  "org.mockito" % "mockito-core" % "2.13.0" % Test
 )
 
 // Adds additional packages into Twirl
