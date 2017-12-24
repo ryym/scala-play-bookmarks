@@ -7,9 +7,9 @@ import common.Repository
 
 @Singleton
 class Entries extends Repository[Entry] {
-  protected val alias = syntax("u")
+  protected val alias = syntax("e")
   override val tableName = "entries"
-  override val columns = Seq("id", "url", "title", "created_at", "updated_at")
+  override val columns = listColumnNames(classOf[Entry])
 
   override def apply(e: ResultName[Entry])(rs: WrappedResultSet): Entry =
     autoConstruct(rs, e)

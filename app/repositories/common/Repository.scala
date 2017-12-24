@@ -27,4 +27,7 @@ trait Repository[T] extends SQLSyntaxSupport[T] with JoinDefiner[T] {
   // そういうチェックはできなくなる。upper bound 使ってもダメだった。
   // ひとまずここのタイプセーフティは諦める。
   protected def id(t: SyntaxProvider[T]): SQLSyntax = t.id
+
+  protected def listColumnNames(clazz: Class[T]): Seq[String] =
+    clazz.getDeclaredFields.map(f => Strings.camelToSnake(f.getName))
 }

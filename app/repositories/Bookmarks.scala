@@ -7,9 +7,9 @@ import common.Repository
 
 @Singleton
 class Bookmarks extends Repository[Bookmark] {
-  protected val alias = syntax("u")
+  protected val alias = syntax("b")
   override val tableName = "bookmarks"
-  override val columns = Seq("id", "user_id", "entry_id", "comment", "created_at", "updated_at")
+  override val columns = listColumnNames(classOf[Bookmark])
 
   override def apply(b: ResultName[Bookmark])(rs: WrappedResultSet): Bookmark =
     autoConstruct(rs, b)
