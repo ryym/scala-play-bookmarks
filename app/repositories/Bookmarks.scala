@@ -13,4 +13,6 @@ class Bookmarks extends Repository[Bookmark] {
 
   override def apply(b: ResultName[Bookmark])(rs: WrappedResultSet): Bookmark =
     autoConstruct(rs, b)
+
+  def to(e: Entries) = join(e)(_.id === _.entryId)
 }
