@@ -1,8 +1,9 @@
 package repositories.common
 
 import scalikejdbc._
+import lib._
 
-trait Repository[T] extends SQLSyntaxSupport[T] {
+trait Repository[T] extends SQLSyntaxSupport[T] with JoinDefiner[T] {
   protected val alias: SyntaxProvider[T]
   private lazy val t = alias
 
