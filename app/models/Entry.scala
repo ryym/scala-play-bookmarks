@@ -6,7 +6,7 @@ case class Entry(
   id: Long,
   url: String,
   title: String,
-  createdAt: ZonedDateTime,
-  updatedAt: ZonedDateTime,
+  createdAt: ZonedDateTime = ZonedDateTime.now,
+  updatedAt: ZonedDateTime = ZonedDateTime.now,
 )
 

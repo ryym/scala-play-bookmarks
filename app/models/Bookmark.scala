@@ -7,7 +7,7 @@ case class Bookmark(
   userId: Long,
   entryId: Long,
   comment: String,
-  createdAt: ZonedDateTime,
-  updatedAt: ZonedDateTime,
+  createdAt: ZonedDateTime = ZonedDateTime.now,
+  updatedAt: ZonedDateTime = ZonedDateTime.now,
 )
 

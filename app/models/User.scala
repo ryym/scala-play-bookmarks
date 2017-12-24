@@ -5,6 +5,6 @@ import java.time._
 case class User(
   id: Long,
   name: String,
-  createdAt: ZonedDateTime,
-  updatedAt: ZonedDateTime,
+  createdAt: ZonedDateTime = ZonedDateTime.now,
+  updatedAt: ZonedDateTime = ZonedDateTime.now,
 )
