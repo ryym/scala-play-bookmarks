@@ -15,4 +15,5 @@ class Bookmarks extends Repository[Bookmark] {
     autoConstruct(rs, b)
 
   def to(e: Entries) = join(e)(_.id === _.entryId)
+  def to(u: Users) = join(u)(_.id === _.userId)
 }

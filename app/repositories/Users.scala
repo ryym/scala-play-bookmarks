@@ -13,4 +13,6 @@ class Users extends Repository[User] {
 
   override def apply(u: ResultName[User])(rs: WrappedResultSet): User =
     autoConstruct(rs, u)
+
+  def to(b: Bookmarks) = join(b)(_.userId === _.id)
 }
